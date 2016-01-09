@@ -3,7 +3,10 @@ import Square from './Square';
 import Knight from './Knight';
 import { moveKnight, canMoveKnight } from './Game';
 
-export default class Board extends Component {
+import HTML5Backend from 'react-dnd-html5-backend';
+import { DragDropContext } from 'react-dnd';
+
+class Board extends Component {
 
   renderSquare(i) {
     const x = i % 8;
@@ -58,3 +61,5 @@ Board.propTypes = {
     PropTypes.number.isRequired
   ).isRequired
 };
+
+export default DragDropContext(HTML5Backend)(Board);
